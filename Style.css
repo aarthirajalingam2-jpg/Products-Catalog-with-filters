@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products Catalog with Filters</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-buttons button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .filter-buttons button:hover {
+      background-color: #45a049;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .product p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .product .price {
+      font-weight: bold;
+      color: #4CAF50;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Products Catalog with Filters</h1>
+
+  <div class="filter-buttons">
+    <button onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('electronics')">Electronics</button>
+    <button onclick="filterProducts('clothing')">Clothing</button>
+    <button onclick="filterProducts('grocery')">Grocery</button>
+  </div>
+
+  <div class="product-grid">
+    <div class="product electronics">
+      <img src="https://via.placeholder.com/200x150?text=Laptop" alt="Laptop">
+      <h3>Laptop</h3>
+      <p>High-performance laptop</p>
+      <p class="price">$999</p>
+    </div>
+
+    <div class="product clothing">
+      <img src="https://via.placeholder.com/200x150?text=T-Shirt" alt="T-Shirt">
+      <h3>T-Shirt</h3>
+      <p>Comfortable cotton t-shirt</p>
+      <p class="price">$25</p>
+    </div>
+
+    <div class="product grocery">
+      <img src="https://via.placeholder.com/200x150?text=Apple" alt="Apple">
+      <h3>Apple</h3>
+      <p>Fresh red apples</p>
+      <p class="price">$2 / kg</p>
+    </div>
+
+    <div class="product electronics">
+      <img src="https://via.placeholder.com/200x150?text=Headphones" alt="Headphones">
+      <h3>Headphones</h3>
+      <p>Noise cancelling headphones</p>
+      <p class="price">$199</p>
+    </div>
+
+    <div class="product clothing">
+      <img src="https://via.placeholder.com/200x150?text=Jacket" alt="Jacket">
+      <h3>Jacket</h3>
+      <p>Stylish winter jacket</p>
+      <p class="price">$79</p>
+    </div>
+
+    <div class="product grocery">
+      <img src="https://via.placeholder.com/200x150?text=Milk" alt="Milk">
+      <h3>Milk</h3>
+      <p>Organic cow milk</p>
+      <p class="price">$1 / L</p>
+    </div>
+  </div>
+
+  <script>
+    function filterProducts(category) {
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        if (category === 'all' || product.classList.contains(category)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
